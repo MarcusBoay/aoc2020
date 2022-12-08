@@ -31,19 +31,11 @@ fn part1(data: &Vec<Vec<String>>) {
 fn part2(data: &Vec<Vec<String>>)  {
     let mut valids = 0;
     for line in data {
-        // let mut f = [0; 26];
         let nums = line[0].split('-').map(|x| x.parse::<usize>().unwrap()-1).collect::<Vec<usize>>();
         let i = nums[0];
         let j = nums[1];
         let c = line[1].chars().collect::<Vec<char>>()[0];
         let password = line[2].chars().collect::<Vec<char>>();
-        // for c in line[2].chars() {
-        //     let c = c.to_digit(36).unwrap() - 10;
-        //     f[c as usize] += 1;
-        // }
-        // if f[n as usize] >= min && f[n as usize] <= max {
-        //     valids += 1;
-        // }
         if (password[i] == c) ^ (password[j] == c) {
             valids += 1;
         }
